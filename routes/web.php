@@ -1,21 +1,16 @@
 <?php
 
-use App\Http\Controllers\infoController;
-use App\Models\info;
-use App\Models\user;
-use App\Models\post;
-use App\Models\category;
-use App\Models\user_info;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
-Route::get('/story',function(){
-    return view('/story');
-})->name('story');
- 
 
-Route::resource('/index',infoController::class);
+// Index, Show, Create, Store, Edit, Update, Destroy
 
+// Route::get('notes', [NoteController::class, 'index'])->name('notes.index');
+// Route::get('notes/show/{id}', [NoteController::class, 'show'])->name('notes.show');
+// Route::get('notes/create', [NoteController::class, 'create'])->name('notes.create');
+// Route::post('notes/store', [NoteController::class, 'store'])->name('notes.store');
+// Route::get('notes/edit/{id}', [NoteController::class, 'edit'])->name('notes.edit');
+// Route::put('notes/update/{id}', [NoteController::class, 'update'])->name('notes.update');
+// Route::delete('notes/destroy/{id}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
-Route::get('/relation',function(){
-    $posts=post::with('category')->get();
-    return view('relation',['data'=>$posts]);
-});
+Route::resource('/notes', NoteController::class);
